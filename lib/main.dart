@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_app/config/constants.dart';
+import 'package:pokedex_app/config/theme/theme.dart';
+import 'package:pokedex_app/presentation/splash/splash_screen.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Text('Hello World'),
-      ),
+      title: kMaterialAppTitle,
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light,
+      home: SplashScreen(),
     );
   }
 }
