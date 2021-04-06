@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex_app/config/constants.dart';
 import 'package:pokedex_app/config/theme/theme.dart';
+import 'package:pokedex_app/core/utils/navigation_utils.dart';
 import 'package:pokedex_app/presentation/home/home_screen.dart';
 import 'package:pokedex_app/presentation/splash/splash_cubit.dart';
 
@@ -13,7 +14,7 @@ class SplashScreen extends StatelessWidget {
       child: BlocListener<SplashCubit, SplashState>(
         listener: (context, state) {
           if (state == SplashState.loggedIn) {
-            Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeScreen()));
+            navigationPushReplacement(context, HomeScreen.init());
           }
         },
         child: Scaffold(
