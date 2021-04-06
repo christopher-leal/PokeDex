@@ -2,7 +2,6 @@ include: package:lint/analysis_options.yaml
 
 linter:
   rules:
-
     # Make constructors the first thing in every class
     sort_constructors_first: true
 
@@ -13,3 +12,8 @@ linter:
     always_specify_types: false
   
     avoid_classes_with_only_static_members: false
+
+    always_declare_return_types: true
+
+
+    
