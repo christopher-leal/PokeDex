@@ -8,7 +8,8 @@ class ThemeCubit extends Cubit<bool> {
   bool get isDark => _isDark;
 
   void init() {
-    // _isDark = true;
+    // TODO: add service
+    _isDark = false;
     emit(_isDark);
   }
 }
