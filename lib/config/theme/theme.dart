@@ -5,17 +5,15 @@ abstract class AppTheme {
   static const red = Color(0xFFdd2c00);
   static ThemeData get light {
     return ThemeData.light().copyWith(
-      primaryColor: Colors.black,
+      primaryColor: red,
       accentColor: Colors.black,
-      splashColor: Colors.transparent,
     );
   }
 
   static ThemeData get dark {
     return ThemeData.dark().copyWith(
-      primaryColor: Colors.black,
+      primaryColor: red,
       accentColor: Colors.black,
-      splashColor: Colors.transparent,
     );
   }
 }
