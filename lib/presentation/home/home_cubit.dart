@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:palette_generator/palette_generator.dart';
-import 'package:pokedex_app/domain/entities/pokemon_list_item.dart';
-import 'package:pokedex_app/domain/usecases/pokemon_list_use_case.dart';
+
+import '../../domain/entities/pokemon_list_item.dart';
+import '../../domain/usecases/pokemon_list_use_case.dart';
 
 class HomeCubit extends Cubit<List<PokemonListItem>> {
   HomeCubit(this._pokemonListUseCase) : super([]);
@@ -15,11 +16,10 @@ class HomeCubit extends Cubit<List<PokemonListItem>> {
     emit([...state, ...pokemons]);
   }
 
-  Future<void> getMainColor(int index, ImageProvider imageProvider) async {
-    final paletteGenerator = await PaletteGenerator.fromImageProvider(
-      imageProvider,
-    );
-    state[index].backgroundColor = paletteGenerator?.dominantColor?.color;
-    emit([...state]);
+  void getBackgroundColor(int index, ImageProvider imageProvider) {
+    PaletteGenerator.fromImageProvider(imageProvider).then((generator) {
+      state[index].backgroundColor = generator.dominantColor.color ?? Colors.red;
+      emit([...state]);
+    });
   }
 }

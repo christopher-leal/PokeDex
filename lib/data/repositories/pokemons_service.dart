@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:pokedex_app/config/constants.dart';
-import 'package:pokedex_app/domain/entities/pokemon_list_item.dart';
-import 'package:pokedex_app/domain/entities/pokemon_paginated_response.dart';
-import 'package:pokedex_app/domain/repositories/pokemons_repository.dart';
+import '../../config/constants.dart';
+import '../../domain/entities/pokemon_list_item.dart';
+import '../../domain/entities/pokemon_paginated_response.dart';
+import '../../domain/repositories/pokemons_repository.dart';
 
 class PokemonsService extends PokemonsRepository {
   String _url = '$kBaseUrl/pokemon';

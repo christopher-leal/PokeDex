@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex_app/domain/entities/pokemon_list_item.dart';
-import 'package:pokedex_app/presentation/home/home_cubit.dart';
+
+import '../../domain/entities/pokemon_list_item.dart';
+import 'home_cubit.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen._();
@@ -49,10 +50,14 @@ class _HomeScreenState extends State<HomeScreen> {
               itemCount: state.length + 1,
               itemBuilder: (context, index) {
                 if (index >= state.length) {
-                  return const Center(child: CupertinoActivityIndicator());
+                  return const Center(
+                      child: CupertinoActivityIndicator(
+                    radius: 20,
+                  ));
                 }
                 final pokemon = state[index];
-                return _PokemonItem(pokemon: pokemon, index: index);
+                // context.read<HomeCubit>().getBackgroundColor(index, NetworkImage(pokemon.picture));
+                return _PokemonItem(pokemon: pokemon);
               },
             );
           },
@@ -64,19 +69,17 @@ class _PokemonItem extends StatelessWidget {
   const _PokemonItem({
     Key key,
     @required this.pokemon,
-    this.index,
   }) : super(key: key);
 
   final PokemonListItem pokemon;
-  final int index;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    // context.read<HomeCubit>().getMainColor(index, NetworkImage(pokemon.picture));
 
     return Stack(
       children: [
         Card(
+          color: pokemon.backgroundColor,
           child: Image.asset(
             'assets/pokeball.png',
           ),

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex_app/config/constants.dart';
-import 'package:pokedex_app/config/theme/theme.dart';
-import 'package:pokedex_app/core/utils/navigation_utils.dart';
-import 'package:pokedex_app/presentation/home/home_screen.dart';
-import 'package:pokedex_app/presentation/splash/splash_cubit.dart';
+
+import '../../config/constants.dart';
+import '../../config/theme/theme.dart';
+import '../../core/utils/navigation_utils.dart';
+import '../home/home_screen.dart';
+import 'splash_cubit.dart';
 
 class SplashScreen extends StatelessWidget {
   @override

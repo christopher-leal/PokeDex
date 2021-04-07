@@ -1,5 +1,5 @@
-import 'package:pokedex_app/domain/entities/pokemon_list_item.dart';
-import 'package:pokedex_app/domain/repositories/pokemons_repository.dart';
+import '../entities/pokemon_list_item.dart';
+import '../repositories/pokemons_repository.dart';
 
 class PokemonListUseCase {
   PokemonListUseCase(this._pokemonsRepository);
