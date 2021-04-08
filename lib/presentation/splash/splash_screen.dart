@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
       child: BlocListener<SplashCubit, SplashState>(
         listener: (context, state) {
           if (state == SplashState.loggedIn) {
-            navigationPushReplacement(context, HomeScreen.init());
+            navigationPushReplacement(context, HomeScreen());
           }
         },
         child: Scaffold(
