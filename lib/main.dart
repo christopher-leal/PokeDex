@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokedex_app/presentation/pokemons/pokemons_cubit.dart';
 
 import 'config/constants.dart';
 import 'config/theme/theme.dart';
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
       providers: [
         RepositoryProvider<PokemonsRepository>(create: (context) => PokemonsService()),
         RepositoryProvider<SplashCubit>(create: (context) => SplashCubit()),
-        RepositoryProvider<HomeCubit>(create: (context) => HomeCubit(context.read())),
+        RepositoryProvider<HomeCubit>(create: (context) => HomeCubit()),
+        RepositoryProvider<PokemonsCubit>(create: (context) => PokemonsCubit(context.read())),
         RepositoryProvider<PokemonListUseCase>(create: (context) => PokemonListUseCase(context.read())),
       ],
       child: BlocProvider(
