@@ -1,6 +1,6 @@
+import 'package:color_thief_flutter/color_thief_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:palette_generator/palette_generator.dart';
 import 'package:pokedex_app/domain/entities/pokemon_list_item.dart';
 import 'package:pokedex_app/domain/usecases/pokemon_list_use_case.dart';
 
@@ -14,10 +14,12 @@ class PokemonsCubit extends Cubit<List<PokemonListItem>> {
     emit([...state, ...pokemons]);
   }
 
-  void getBackgroundColor(int index, ImageProvider imageProvider) {
-    PaletteGenerator.fromImageProvider(imageProvider).then((generator) {
-      state[index].backgroundColor = generator.dominantColor.color ?? Colors.red;
-      emit([...state]);
-    });
+  void getBackgroundColor(PokemonListItem pokemon) {
+    if (pokemon.backgroundColor == null) {
+      getColorFromUrl(pokemon.picture).then((color) {
+        pokemon.backgroundColor = Color.fromRGBO(color[0] as int, color[1] as int, color[2] as int, 1.0);
+        emit([...state]);
+      });
+    }
   }
 }
