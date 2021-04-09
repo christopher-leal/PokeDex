@@ -38,7 +38,7 @@ class _PokemonGridScreenState extends State<PokemonGridScreen> {
           }
           return GridView.builder(
             controller: _scrollController,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
             itemCount: state.length + 1,
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
